@@ -23,7 +23,7 @@ func main() {
 
 	// Define a handler function
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, I'm Ankush. Welcome to my first Go-application.")
+		fmt.Fprintf(w, "Hello World, I am Sanjay")
 	})
 
 	// Start the HTTP server

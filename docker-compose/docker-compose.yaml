@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  go-app:
+    image: doc468991/ankush-go-app:v2-jenkins  # Replace with your Docker image tag
+    ports:
+      - "8000:8000"  # Map container port 8080 to host port 8080
+    restart: always
+
+  nextjs-app:
+    image: doc468991/ankush-nextjs-app:v2-jenkins  # Replace with your Docker image tag
+    ports:
+      - "3000:3000"  # Map container port 8080 to host port 8080
+    restart: always
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: mysql_root_password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD_FILE: wordpress_db_password
+
+  wordpress:
+    image: wordpress:latest
+    depends_on:
+      - db
+    ports:
+      - "8081:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD_FILE: wordpress_db_password
+      WORDPRESS_DB_NAME: wordpress
+
+volumes:
+  db_data:

@@ -1,0 +1,35 @@
+linters-settings:
+  # Configuration for golint linter
+  golint:
+    # enable the linter
+    enabled: true
+
+  # Configuration for govet linter
+  govet:
+    # enable the linter
+    enabled: true
+
+  # Configuration for gofmt linter
+  gofmt:
+    # enable the linter
+    enabled: true
+
+  # Configuration for goimports linter
+  goimports:
+    # enable the linter
+    enabled: true
+
+  # Configuration for misspell linter
+  misspell:
+    # enable the linter
+    enabled: true
+
+  # Configuration for unconvert linter
+  unconvert:
+    # enable the linter
+    enabled: true
+
+  # Configuration for gosec linter
+  gosec:
+    # enable the linter
+    enabled: true

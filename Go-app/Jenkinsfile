@@ -3,15 +3,15 @@ pipeline {
     
     environment {
         // Define Docker image name and tag
-        DOCKER_IMAGE = "doc468991/ankush-go-app"
-        DOCKER_TAG = "v2-jenkins"
+        DOCKER_IMAGE = "sanjaybdch9/go_app"
+        DOCKER_TAG = "go_app"
     }
     
     stages {
         stage('Checkout') {
             steps {
                 // Checkout source code from your Git repository
-                git 'https://github.com/AnkushPal98/Devops-Assignment-Inc42.git'
+                git 'https://github.com/sanjaybdch9/myapp.git'
             }
         }
         
@@ -61,7 +61,7 @@ pipeline {
         always {
             // Clean up Docker images after the build
             cleanWs()
-            sh 'docker rmi $(docker images -q)'
+            sh 'docker rmi -f $(docker images -q)'
         }
     }
 }

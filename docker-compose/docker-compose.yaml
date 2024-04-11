@@ -2,13 +2,13 @@ version: '3'
 
 services:
   go-app:
-    image: doc468991/ankush-go-app:v2-jenkins  # Replace with your Docker image tag
+    image: sanjaybdch9/go_app  # Replace with your Docker image tag
     ports:
       - "8000:8000"  # Map container port 8080 to host port 8080
     restart: always
 
   nextjs-app:
-    image: doc468991/ankush-nextjs-app:v2-jenkins  # Replace with your Docker image tag
+    image: sanjaybdch9/nextjs_app  # Replace with your Docker image tag
     ports:
       - "3000:3000"  # Map container port 8080 to host port 8080
     restart: always
